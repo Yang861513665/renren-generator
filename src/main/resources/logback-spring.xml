@@ -49,4 +49,11 @@
         <!--appender将会添加到这个loger-->
         <appender-ref ref="error"/>
     </root>
+
+    <!-- 测试环境+开发环境. 多个使用逗号隔开. -->
+    <!--<springProfile name="test,dev">-->
+        <!--<logger name="com.example.demo.controller" level="DEBUG" additivity="false">-->
+            <!--<appender-ref ref="console"/>-->
+        <!--</logger>-->
+    <!--</springProfile>-->
 </configuration>
