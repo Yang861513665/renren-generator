@@ -7,9 +7,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     #MySQL配置
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/renren_fast?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: renren
-    password: 123456
+    url: jdbc:mysql://localhost:3306/ds1?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
     #oracle配置
     #    driverClassName: oracle.jdbc.OracleDriver
     #    url: jdbc:oracle:thin:@47.100.206.162:1521:xe
@@ -30,6 +30,8 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   resources:
     static-locations: classpath:/static/,classpath:/views/
+  thymeleaf:
+    prefix: classpath:/views/
 
 
 mybatis-plus:
@@ -46,3 +48,13 @@ pagehelper:
 renren:
   database: mysql
 
+# weibo app
+
+weibo:
+  app_id: 2793431198
+  app_secret: f56248386edca368aa3bdf5a5e3bbe86
+  redirect_uri: http://renren.gen.com/success
+#  file 和 path 是不能同时配置的，如果同时配置path不会生效。
+#logging:
+#  file:
+#    name: /Users/edz/renren-log/renren-generator.log
