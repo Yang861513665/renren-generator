@@ -10,6 +10,7 @@ package io.renren.service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.google.common.collect.ImmutableMap;
 import io.renren.dao.GeneratorDao;
 import io.renren.utils.GenUtils;
 import io.renren.utils.PageUtils;
@@ -37,6 +38,8 @@ public class SysGeneratorService {
 		Page<?> page = PageHelper.startPage(query.getPage(), query.getLimit());
 		List<Map<String, Object>> list = generatorDao.queryList(query);
 
+		list.add(get());
+
 		return new PageUtils(list, (int)page.getTotal(), query.getLimit(), query.getPage());
 	}
 
@@ -62,5 +65,9 @@ public class SysGeneratorService {
 		}
 		IOUtils.closeQuietly(zip);
 		return outputStream.toByteArray();
+	}
+
+	public Map<String,Object> get() {
+		return ImmutableMap.of("sex", "male");
 	}
 }
