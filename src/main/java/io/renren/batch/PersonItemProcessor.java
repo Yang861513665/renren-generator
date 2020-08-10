@@ -1,23 +1,23 @@
 package io.renren.batch;
 
-import io.renren.entity.Person;
+import io.renren.entity.PersonDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.batch.item.ItemProcessor;
 
-public class PersonItemProcessor implements ItemProcessor<Person, Person> {
+public class PersonItemProcessor implements ItemProcessor<PersonDO, PersonDO> {
 
     private static final Logger log = LoggerFactory.getLogger(PersonItemProcessor.class);
 
     @Override
-    public Person process(Person person) throws Exception {
+    public PersonDO process(PersonDO personDO) throws Exception {
 
-        Person transformedPerson = new Person(person.getFirstName().toUpperCase(), person.getLastName().toUpperCase());
+        PersonDO transformedPersonDO = new PersonDO(personDO.getFirstName().toUpperCase(), personDO.getLastName().toUpperCase());
 
-        log.info("Converting (" + person + ") into (" + transformedPerson + ")");
+        log.info("Converting (" + personDO + ") into (" + transformedPersonDO + ")");
 
-        return transformedPerson;
+        return transformedPersonDO;
     }
 
 }
