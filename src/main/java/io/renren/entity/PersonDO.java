@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 public class PersonDO {
     @TableId
-    private Integer id;
+    private String id;
     private String firstName;
     @DataHide
     private String lastName;

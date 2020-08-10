@@ -1,6 +1,5 @@
 package io.renren.dao;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.renren.BaseSpringMockTest;
 import io.renren.entity.PersonDO;
 import org.junit.Test;
@@ -17,7 +16,10 @@ public class PersonDOMapperTest extends BaseSpringMockTest {
 
     @Test
     public void test(){
-        int count = personMapper.selectCount(new QueryWrapper<PersonDO>().eq("first_name", "yang"));
-        System.out.println(count);
+        PersonDO personDO = new PersonDO("yang", "ximing");
+//        personMapper.add(personDO);
+
+        personMapper.add2(null, "yang", "xijie");
+
     }
 }
