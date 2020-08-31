@@ -15,9 +15,9 @@
     </appender>
 
     <!--文件输出,时间窗口滚动-->
-    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--日志名,指定最新的文件名，其他文件名使用FileNamePattern -->
-        <File>${LOG_HOME}/renren-generator.error.log</File>
+        <File>${LOG_HOME}/renren-generator.log</File>
         <!--文件滚动模式-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名,可设置文件类型为gz,开启文件压缩-->
@@ -37,17 +37,13 @@
             <!--设置编码-->
             <charset>UTF-8</charset>
         </encoder>
-
     </appender>
 
     <!--指定基础的日志输出级别-->
     <root level="INFO">
         <!--appender将会添加到这个loger-->
         <appender-ref ref="console"/>
-    </root>
-    <root level="ERROR">
-        <!--appender将会添加到这个loger-->
-        <appender-ref ref="error"/>
+        <appender-ref ref="file"/>
     </root>
 
     <!-- 测试环境+开发环境. 多个使用逗号隔开. -->
