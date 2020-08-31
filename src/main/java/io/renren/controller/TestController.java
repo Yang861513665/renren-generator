@@ -8,6 +8,7 @@ import com.alipay.api.request.AlipaySystemOauthTokenRequest;
 import com.alipay.api.request.AlipayUserInfoShareRequest;
 import com.alipay.api.response.AlipaySystemOauthTokenResponse;
 import com.alipay.api.response.AlipayUserInfoShareResponse;
+import io.renren.annotation.Log;
 import io.renren.config.AliPayAppConfig;
 import io.renren.config.WeiBoAppConfig;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.PostConstruct;
@@ -89,6 +91,19 @@ public class TestController {
     @GetMapping("fail")
     public String fail() {
         return "fail";
+    }
+
+    @GetMapping("rest/{msg}")
+    @ResponseBody
+    @Log
+    public String rest(@PathVariable(value = "msg", required = false) String msg) {
+        return msg;
+    }
+    @ResponseBody
+    @GetMapping("rest2/{msg}")
+    @Log
+    public String rest2(@PathVariable(value = "msg") String msg) {
+        return msg;
     }
 
 }

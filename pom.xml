@@ -27,8 +27,6 @@
         <velocity.version>1.7</velocity.version>
         <pagehelper.spring.boot.version>1.2.5</pagehelper.spring.boot.version>
         <mysql.version>8.0.17</mysql.version>
-        <mssql.version>4.0</mssql.version>
-        <oracle.version>11.2.0.3</oracle.version>
     </properties>
 
     <dependencies>
@@ -150,6 +148,10 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>2.0.2-beta</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
     </dependencies>
 

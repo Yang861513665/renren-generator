@@ -16,7 +16,7 @@ import java.util.Properties;
  * <p>
  * 数据脱敏拦截器
  */
-@Component
+//@Component
 @Intercepts(@Signature(type = ResultSetHandler.class, method = "handleResultSets", args = Statement.class))
 public class DataHidePlugin implements Interceptor {
     @Override

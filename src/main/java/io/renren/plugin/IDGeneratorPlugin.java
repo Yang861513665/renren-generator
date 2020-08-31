@@ -16,11 +16,11 @@ import java.util.*;
  * <p>
  * 自定义id生成器
  */
-@Component
+//@Component
 @Intercepts(@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}))
 public class IDGeneratorPlugin implements Interceptor {
 
-    public final static String ID_FIELD = "id";
+    private final static String ID_FIELD = "id";
 
     @Override
     @SuppressWarnings("unchecked")
@@ -28,10 +28,13 @@ public class IDGeneratorPlugin implements Interceptor {
         MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
         Object param = invocation.getArgs()[1];
         SqlCommandType sqlCommandType = mappedStatement.getSqlCommandType();
-        if (!sqlCommandType.equals(SqlCommandType.INSERT)) { // 非插入类型跳过
+
+        // 非插入类型跳过
+        if (!sqlCommandType.equals(SqlCommandType.INSERT)) {
            return invocation.proceed();
         }
         // 参数类型 map or entity
+        // 注: mybatis在处理多参数，以及参数类型为集合时，会将参数转map类型处理
         if (param instanceof Map) {
             Map paramMap = (Map)param;
             // 是否为批量插入操作
@@ -42,7 +45,7 @@ public class IDGeneratorPlugin implements Interceptor {
                 }
             } else {
                 paramMap.put(ID_FIELD, IdUtil.fastSimpleUUID());
-            }
+            }// offer offer
         } else {
             restId(param);
         }
