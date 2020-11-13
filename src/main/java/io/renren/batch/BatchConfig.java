@@ -16,8 +16,8 @@ import org.springframework.context.annotation.Configuration;
  * @author yangxj
  * @date 2020-07-06 14:49
  */
-@Configuration
-@EnableBatchProcessing
+//@Configuration
+//@EnableBatchProcessing
 @SuppressWarnings("unchecked")
 public class BatchConfig {
     @Autowired

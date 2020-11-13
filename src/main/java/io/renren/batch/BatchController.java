@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author yangxj
  * @date 2020-07-06 17:17
  */
-@RestController
+//@RestController
 @RequestMapping("job")
 @Slf4j
 public class BatchController {

@@ -27,7 +27,7 @@ import javax.annotation.PostConstruct;
  * @author yangxj
  * @date 2020-06-30 13:52
  */
-@Controller
+//@Controller
 @Slf4j
 public class TestController {
     @Autowired

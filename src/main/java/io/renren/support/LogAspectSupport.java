@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 @Priority(-1)
 @Slf4j
 public class LogAspectSupport {
-    @Autowired
+    @Autowired(required = false)
     HttpServletRequest request;
 
     @Around("@annotation(logger)")
